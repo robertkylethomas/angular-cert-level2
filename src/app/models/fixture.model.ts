@@ -1,7 +1,7 @@
 export interface IFixturePayload {
   get: string;
   parameters: IParameters;
-  errors: any[];
+  errors: string[];
   results: number;
   paging: IPaging;
   response: IFixtureResponse[];

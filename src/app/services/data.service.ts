@@ -16,28 +16,6 @@ import { IFixturePayload, IFixtureResponse } from '../models/fixture.model';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  // getStandings(leagueId: number): Observable<ILeague> {
-  //   return this.http
-  //     .get<IPayload>(
-  //       `./assets/json/standings.json`
-  //     )
-  //     .pipe(map((payload: IPayload) => payload.response[0].league));
-  // }
-
-  //  getFixtures(
-  //   leagueId: number,
-  //   teamId: number
-  // ): Observable<IFixtureResponse[]> {
-  //   return this.http
-  //     .get(
-  //       `./assets/json/fixtures.json`
-  //     )
-
-  //     .pipe(
-  //       map((fixtureResponse: IFixturePayload) => fixtureResponse.response)
-  //     );
-  // }
-
   getStandings(leagueId: number): Observable<ILeague> {
     return this.http
       .get<IPayload>(
@@ -46,8 +24,7 @@ export class DataService {
       .pipe(
         map((payload: IPayload) => payload.response[0].league),
         shareReplay(1)
-
-        );
+      );
   }
 
   getFixtures(
@@ -64,5 +41,4 @@ export class DataService {
         shareReplay(1)
       );
   }
-
 }

@@ -13,12 +13,12 @@ img {
   justify-content: end;
 }
 
-:host() {
+:host {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 }
 
-:host() > div {
+:host > div {
   width: 100%;
 }
