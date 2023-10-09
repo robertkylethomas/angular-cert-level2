@@ -1,6 +1,5 @@
-import { Component, ElementRef, ViewChildren } from '@angular/core';
-import { ActivatedRoute, Route, Router } from '@angular/router';
-import { tap } from 'rxjs';
+import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +9,7 @@ import { tap } from 'rxjs';
 export class HomeComponent {
 
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router){
+  constructor( private router: Router){
 
   }
 

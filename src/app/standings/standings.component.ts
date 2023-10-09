@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable, map, mergeAll, of, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { ILeague, IStanding } from 'src/app/models/standing.models';
 import { DataService } from 'src/app/services/data.service';
 
@@ -26,9 +26,6 @@ export class StandingsComponent implements OnInit {
   ngOnInit(): void {}
 
   openFixtures(teamId: number) {
-
-    console.log(this.activatedRoute.snapshot.params)
-
     this.router.navigate([
       'league',
       this.activatedRoute.snapshot.params['leagueId'],
