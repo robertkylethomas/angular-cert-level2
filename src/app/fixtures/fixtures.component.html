@@ -1,4 +1,4 @@
-<ul *ngIf="allResponses | async as allFixtures; else loading">
+<ul *ngIf="allResponses$ | async as allFixtures; else loading">
   <li>
     <div class="home"><h4>Home</h4></div>
     <div class="away"><h4>Away</h4></div>

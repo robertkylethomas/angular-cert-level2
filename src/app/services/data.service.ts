@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, delay, map, tap } from 'rxjs';
+import { Observable, delay, map, shareReplay, tap } from 'rxjs';
 import {
   IGoals,
   ILeague,
@@ -16,13 +16,6 @@ import { IFixturePayload, IFixtureResponse } from '../models/fixture.model';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  // getStandings(leagueId: number): Observable<ILeague> {
-  //   return this.http
-  //     .get<IPayload>(
-  //       `https://v3.football.api-sports.io/standings?league=${leagueId}&season=2023`
-  //     )
-  //     .pipe(map((payload: IPayload) => payload.response[0].league));
-  // }
   getStandings(leagueId: number): Observable<ILeague> {
     return this.http
       .get<IPayload>(
@@ -31,20 +24,7 @@ export class DataService {
       .pipe(map((payload: IPayload) => payload.response[0].league));
   }
 
-  // getFixtures(
-  //   leagueId: number,
-  //   teamId: number
-  // ): Observable<IFixtureResponse[]> {
-  //   return this.http
-  //     .get(
-  //       `https://v3.football.api-sports.io/fixtures?team=${teamId}&season=2023&league=${leagueId}&last=10`
-  //     )
-
-  //     .pipe(
-  //       map((fixtureResponse: IFixturePayload) => fixtureResponse.response)
-  //     );
-  // }
-  getFixtures(
+   getFixtures(
     leagueId: number,
     teamId: number
   ): Observable<IFixtureResponse[]> {
@@ -57,4 +37,32 @@ export class DataService {
         map((fixtureResponse: IFixturePayload) => fixtureResponse.response)
       );
   }
+
+  // getStandings(leagueId: number): Observable<ILeague> {
+  //   return this.http
+  //     .get<IPayload>(
+  //       `https://v3.football.api-sports.io/standings?league=${leagueId}&season=2023`
+  //     )
+  //     .pipe(
+  //       map((payload: IPayload) => payload.response[0].league),
+  //       shareReplay(1)
+
+  //       );
+  // }
+
+  // getFixtures(
+  //   leagueId: number,
+  //   teamId: number
+  // ): Observable<IFixtureResponse[]> {
+  //   return this.http
+  //     .get(
+  //       `https://v3.football.api-sports.io/fixtures?team=${teamId}&season=2023&league=${leagueId}&last=10`
+  //     )
+
+  //     .pipe(
+  //       map((fixtureResponse: IFixturePayload) => fixtureResponse.response),
+  //       shareReplay(1)
+  //     );
+  // }
+
 }

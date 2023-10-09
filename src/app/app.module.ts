@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './home/home.component';
 import { FixturesComponent } from './fixtures/fixtures.component';
-import { StandingComponent } from './standing/standing.component';
 import { StandingsComponent } from './standings/standings.component';
 import { FixtureComponent } from './fixture/fixture.component';
 import { AuthInterceptor } from './auth.interceptor';
@@ -17,7 +16,6 @@ import { AuthInterceptor } from './auth.interceptor';
     AppComponent,
     HomeComponent,
     FixturesComponent,
-    StandingComponent,
     StandingsComponent,
     FixtureComponent,
   ],

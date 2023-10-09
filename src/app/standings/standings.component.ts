@@ -17,7 +17,7 @@ export class StandingsComponent implements OnInit {
 
   ) {}
 
-  standings: Observable<IStanding[]> = this.activatedRoute.params.pipe(
+  standings$: Observable<IStanding[]> = this.activatedRoute.params.pipe(
     map((params) => params['leagueId']),
     switchMap((leagueId: number) => this.dataService.getStandings(leagueId)),
     map((league: ILeague) => league.standings[0])
